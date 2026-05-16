@@ -9,6 +9,54 @@
 
 <style>
 
+@media (max-width: 768px) {
+
+    /* reduce overall scale */
+    .scene{
+        height:55vh;
+        perspective:900px;
+    }
+
+    .carousel{
+        width:220px;
+        height:220px;
+    }
+
+    .card{
+        width:100px;
+        height:130px;
+        margin:-65px -50px;
+    }
+
+    /* reduce 3D distance so it doesn't overflow screen */
+    .card:nth-child(1){ transform:rotateY(0deg) translateZ(280px); }
+    .card:nth-child(2){ transform:rotateY(45deg) translateZ(280px); }
+    .card:nth-child(3){ transform:rotateY(90deg) translateZ(280px); }
+    .card:nth-child(4){ transform:rotateY(135deg) translateZ(280px); }
+    .card:nth-child(5){ transform:rotateY(180deg) translateZ(280px); }
+    .card:nth-child(6){ transform:rotateY(225deg) translateZ(280px); }
+    .card:nth-child(7){ transform:rotateY(270deg) translateZ(280px); }
+    .card:nth-child(8){ transform:rotateY(315deg) translateZ(280px); }
+
+    /* slider fits screen */
+    input[type=range]{
+        width:80%;
+    }
+
+    /* letter button smaller */
+    .letter-btn{
+        width:65px;
+        height:65px;
+        font-size:26px;
+    }
+
+    /* popup text smaller */
+    .popup-box{
+        padding:25px;
+        font-size:14px;
+    }
+}
+
 body{
     margin:0;
     background:#0f0f0f;
