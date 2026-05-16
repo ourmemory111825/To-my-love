@@ -185,6 +185,9 @@ input[type=range]{
     box-sizing:border-box;
     text-align:center;
 }
+.popup{
+    will-change: opacity, transform;
+}
 
 /* image always fits screen */
 .img-popup img{
@@ -445,11 +448,26 @@ function closeImg(){
 const letterPopup = document.getElementById("letterPopup");
 
 function openLetter(){
+
+    paused = true;
+    autoSpin = false;
+    dragging = false;
+
+    document.body.classList.add("popup-open");
+
     letterPopup.style.display = "flex";
 }
 
 function closeLetter(){
+
     letterPopup.style.display = "none";
+
+    document.body.classList.remove("popup-open");
+
+    setTimeout(()=>{
+        paused = false;
+        autoSpin = true;
+    }, 300);
 }
 
 /* ===== MUSIC FIX ===== */
