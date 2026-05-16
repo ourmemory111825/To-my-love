@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 Months Anniversary ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#0f0f0f;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    text-align:center;
+    padding-top:30px;
+}
+
+.title h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3.2rem;
+}
+
+/* ===== SCENE ===== */
+
+.scene{
+    width:100%;
+    height:65vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1200px;
+}
+
+/* ===== CAROUSEL ===== */
+
+.carousel{
+    width:320px;
+    height:320px;
+    position:relative;
+    transform-style:preserve-3d;
+    cursor:grab;
+}
+
+/* ===== CARDS ===== */
+
+.card{
+    position:absolute;
+    width:140px;
+    height:180px;
+    left:50%;
+    top:50%;
+    margin:-90px -70px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* positions */
+.card:nth-child(1){ transform:rotateY(0deg) translateZ(450px); }
+.card:nth-child(2){ transform:rotateY(30deg) translateZ(450px); }
+.card:nth-child(3){ transform:rotateY(60deg) translateZ(450px); }
+.card:nth-child(4){ transform:rotateY(90deg) translateZ(450px); }
+.card:nth-child(5){ transform:rotateY(120deg) translateZ(450px); }
+.card:nth-child(6){ transform:rotateY(150deg) translateZ(450px); }
+.card:nth-child(7){ transform:rotateY(180deg) translateZ(450px); }
+.card:nth-child(8){ transform:rotateY(210deg) translateZ(450px); }
+.card:nth-child(9){ transform:rotateY(240deg) translateZ(450px); }
+.card:nth-child(10){ transform:rotateY(270deg) translateZ(450px); }
+.card:nth-child(11){ transform:rotateY(300deg) translateZ(450px); }
+.card:nth-child(12){ transform:rotateY(330deg) translateZ(450px); }
+
+/* ===== SLIDER ===== */
+
+.scroll-container{
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+}
+
+input[type=range]{
+    width:300px;
+    accent-color:white;
+}
+
+/* ===== LETTER BUTTON ===== */
+
+.letter-section{
+    text-align:center;
+    margin-top:15px;
+}
+
+.letter-btn{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    border:2px solid rgba(255,255,255,0.3);
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ===== POPUPS ===== */
+
+.popup, .img-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    text-align:center;
+}
+
+.popup-box{
+    max-width:600px;
+    width:85%;
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.popup-box h2{
+    font-family:'Dancing Script',cursive;
+    font-size:2.5rem;
+}
+
+.img-popup img{
+    max-width:90%;
+    max-height:70%;
+    border-radius:18px;
+}
+
+.img-popup p{
+    margin-top:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:1.6rem;
+}
+
+/* ===== CLOSE BUTTON ===== */
+
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:3rem;
+    cursor:pointer;
+}
+
+/* ===== MUSIC ===== */
+
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:12px 18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:99999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="title">
+    <h1>Happy 6 Months Anniversary Babeeeee ❤️</h1>
+</div>
+
+<!-- CAROUSEL -->
+<div class="scene">
+<div class="carousel" id="carousel">
+
+<div class="card" data-msg="Our first photo together ❤️ (just right before we took the photo in the photo booth)
+I think it's our first photo together? did we take a photo before this? "><img src="photos/1.jpg"></div>
+
+<div class="card" data-msg="Our first ramen together🍜(I don't count sushitei as ramen) 
+hmm did we even order ramen on our first day? I think we did since you loves the spicy mushroom ramen"><img src="photos/2.jpg"></div>
+
+<div class="card" data-msg="Our first dessert together 🍨 (And after that you told me you're lactose intolerant)
+(Your face is abit fierce here >.<) I wonder why?"><img src="photos/3.jpg"></div>
+
+<div class="card" data-msg="Us ❤️ (I don't know why I add this image in here but it's cute 😊)"><img src="photos/4.jpg"></div>
+
+<div class="card" data-msg="cuteeeee head touch, you lowkey look sad tho 😥 , but nvm it's still so cute my baby!!!"><img src="photos/5.jpg"></div>
+
+<div class="card" data-msg="Our first Hotpot together 🍲 ( And then we take this photo, I still remember you talking about your shirt that you wear lol cute ❤️❤️ )"><img src="photos/6.jpg"></div>
+
+<div class="card" data-msg="Holy I am brave 🫣 ( You are just too pretty I can't resist myself, I'm sorry 😔)"><img src="photos/7.jpg"></div>
+
+<div class="card" data-msg="Us with the full outfit (your shirt that you pick that is not cute according to you, but it's cute in my eye 👀) "><img src="photos/8.jpg"></div>
+
+<div class="card" data-msg="In the hotpot place !!!, our first hotpot together ater you told me so many times you love soup... I am such an idiot bf😔😔😔"><img src="photos/9.jpg"></div>
+
+<div class="card" data-msg="Happy CNY🎉, look at my baby wearing a very cute chinese cloth ( and to think I'm gonna wear a T-shirt, what an idiot )"><img src="photos/10.jpg"></div>
+<div class="card" data-msg="CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE"><img src="photos/11.jpg"></div>
+
+
+<div class="card" data-msg="Exactly 6 Months ago, 18th November, the day I propose to the girl I love the most!!!
+I love you so much babe ❤️"><img src="photos/12.jpg"></div>
+
+
+</div>
+</div>
+
+<!-- SLIDER -->
+<div class="scroll-container">
+    <input type="range" min="0" max="360" value="0" id="slider">
+</div>
+
+<!-- LETTER BUTTON -->
+<div class="letter-section">
+    <button class="letter-btn" onclick="openLetter()">💌</button>
+</div>
+
+<!-- IMAGE POPUP -->
+<div class="img-popup" id="imgPopup">
+    <span class="close" onclick="closeImg()">×</span>
+    <img id="popupImg">
+    <p id="popupText"></p>
+</div>
+
+<!-- LETTER POPUP -->
+<div class="popup" id="letterPopup">
+    <div class="popup-box">
+        <span class="close" onclick="closeLetter()">×</span>
+        <h2>❤️❤️❤️My Love Letter ❤️❤️❤️</h2>
+        <p>
+            To my love, 我的黄, MY QUEEN<br><br>
+            Happy 6 months anniversary babe!!!, can't believe it's already 6 months,<br><br>
+
+            time passes so fast lately, I'm really sorry I can't be right beside you to celebrate our 6 months anniversary.<br><br>
+
+            I love you so much. I know sometimes I can be a bit much to handle, especially when I’m gaming or talking with my friends. And sometimes when I’m upset I don’t reply fast — most of the time it’s just because my phone is on mute, not because I don’t care.<br><br>
+
+            Right now I know I'm not the perfect boyfriend you've always wanted, there are still alot of things for me to improve. But I want you to know that everyday I am trying to be a better boyfriend for you even if it's just a little bit.<br><br>
+
+            Thank you for staying with me for the past 6 Months, and for being patient with me, I really appreciate it babe❤️ really appreciate it🥹.<br><br>
+
+            I hope we can stay together for as long as we live, even when times are hard. <br><br>
+            ❤️ Calvin
+        </p>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<script>
+
+/* ===== CAROUSEL CONTROL ===== */
+
+const carousel = document.getElementById("carousel");
+const slider = document.getElementById("slider");
+
+let rotation = 0;
+let dragging = false;
+let startX = 0;
+let autoSpin = true;
+
+function update(){
+    carousel.style.transform = `rotateY(${rotation}deg)`;
+}
+
+/* ===== AUTO SPIN ===== */
+
+function animate(){
+    if(autoSpin && !dragging){
+        rotation += 0.15;
+        slider.value = rotation;
+        update();
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* ===== SLIDER ===== */
+
+slider.addEventListener("input", (e)=>{
+    rotation = e.target.value;
+    update();
+    autoSpin = false;
+
+    clearTimeout(window.spinBack);
+    window.spinBack = setTimeout(()=> autoSpin = true, 2000);
+});
+
+/* ===== DRAG ===== */
+
+carousel.addEventListener("mousedown", (e)=>{
+    dragging = true;
+    autoSpin = false;
+    startX = e.clientX;
+});
+
+document.addEventListener("mousemove", (e)=>{
+    if(!dragging) return;
+
+    rotation += (e.clientX - startX) * 0.3;
+    slider.value = rotation;
+    update();
+    startX = e.clientX;
+});
+
+document.addEventListener("mouseup", ()=>{
+    dragging = false;
+    setTimeout(()=> autoSpin = true, 2000);
+});
+
+/* TOUCH */
+
+carousel.addEventListener("touchstart", (e)=>{
+    dragging = true;
+    autoSpin = false;
+    startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchmove", (e)=>{
+    if(!dragging) return;
+
+    rotation += (e.touches[0].clientX - startX) * 0.3;
+    slider.value = rotation;
+    update();
+    startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchend", ()=>{
+    dragging = false;
+    setTimeout(()=> autoSpin = true, 2000);
+});
+
+/* ===== IMAGE POPUP ===== */
+
+const imgPopup = document.getElementById("imgPopup");
+const popupImg = document.getElementById("popupImg");
+const popupText = document.getElementById("popupText");
+
+document.querySelectorAll(".card").forEach(card=>{
+    card.addEventListener("click", ()=>{
+        imgPopup.style.display = "flex";
+        popupImg.src = card.querySelector("img").src;
+        popupText.innerText = card.dataset.msg;
+    });
+});
+
+function closeImg(){
+    imgPopup.style.display = "none";
+}
+
+/* ===== LETTER ===== */
+
+const letterPopup = document.getElementById("letterPopup");
+
+function openLetter(){
+    letterPopup.style.display = "flex";
+}
+
+function closeLetter(){
+    letterPopup.style.display = "none";
+}
+
+/* ===== MUSIC FIX ===== */
+
+const music = document.getElementById("bgMusic");
+let musicStarted = false;
+
+document.addEventListener("click", ()=>{
+    if(!musicStarted){
+        music.play().catch(()=>{});
+        musicStarted = true;
+    }
+}, {once:true});
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+</script>
+
+</body>
+</html>
