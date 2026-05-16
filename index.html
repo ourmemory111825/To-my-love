@@ -9,6 +9,10 @@
 
 <style>
 
+body.popup-open{
+    overflow:hidden;
+}
+
 @media (max-width: 768px) {
 
     /* reduce overall scale */
@@ -412,6 +416,14 @@ const popupText = document.getElementById("popupText");
 
 document.querySelectorAll(".card").forEach(card=>{
     card.addEventListener("click", ()=>{
+        
+        // PAUSE EVERYTHING
+        autoSpin = false;
+        dragging = false;
+
+        document.body.classList.add("popup-open");
+
+        // SHOW POPUP
         imgPopup.style.display = "flex";
         popupImg.src = card.querySelector("img").src;
         popupText.innerText = card.dataset.msg;
@@ -420,6 +432,13 @@ document.querySelectorAll(".card").forEach(card=>{
 
 function closeImg(){
     imgPopup.style.display = "none";
+
+    document.body.classList.remove("popup-open");
+
+    // resume carousel after closing
+    setTimeout(()=>{
+        autoSpin = true;
+    }, 500);
 }
 
 /* ===== LETTER ===== */
