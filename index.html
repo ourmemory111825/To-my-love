@@ -336,6 +336,7 @@ let rotation = 0;
 let dragging = false;
 let startX = 0;
 let autoSpin = true;
+let paused = false;
 
 function update(){
     carousel.style.transform = `rotateY(${rotation}deg)`;
@@ -344,7 +345,7 @@ function update(){
 /* ===== AUTO SPIN ===== */
 
 function animate(){
-    if(autoSpin && !dragging){
+    if(!paused && autoSpin && !dragging){
         rotation += 0.15;
         slider.value = rotation;
         update();
@@ -417,13 +418,11 @@ const popupText = document.getElementById("popupText");
 document.querySelectorAll(".card").forEach(card=>{
     card.addEventListener("click", ()=>{
         
-        // PAUSE EVERYTHING
+        paused = true;
         autoSpin = false;
-        dragging = false;
 
         document.body.classList.add("popup-open");
 
-        // SHOW POPUP
         imgPopup.style.display = "flex";
         popupImg.src = card.querySelector("img").src;
         popupText.innerText = card.dataset.msg;
@@ -435,10 +434,10 @@ function closeImg(){
 
     document.body.classList.remove("popup-open");
 
-    // resume carousel after closing
     setTimeout(()=>{
+        paused = false;
         autoSpin = true;
-    }, 500);
+    }, 300);
 }
 
 /* ===== LETTER ===== */
