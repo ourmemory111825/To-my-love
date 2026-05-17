@@ -29,6 +29,18 @@ body{
     position:relative;
 }
 
+.countdown{
+    text-align:center;
+    margin-top:10px;
+
+    font-size:1.2rem;
+    font-weight:500;
+
+    color:#ffb6c1;
+
+    letter-spacing:1px;
+}
+
 /* =========================
    FLOATING HEARTS
 ========================= */
@@ -440,6 +452,8 @@ input[type=range]{
     <div class="counter" id="counter"></div>
 </div>
 
+<div class="countdown" id="countdown"></div>
+
 <!-- CAROUSEL -->
 <div class="scene">
 
@@ -606,6 +620,37 @@ function updateCounter(){
     document.getElementById("counter").innerHTML =
     `Together for ${days} days ${hours} hours ❤️`;
 }
+
+const countdownEl = document.getElementById("countdown");
+
+// Set target date: 15 September 2026 (you can change year if needed)
+const targetDate = new Date("2026-09-15T00:00:00");
+
+function updateCountdown(){
+
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if(diff <= 0){
+        countdownEl.innerHTML = "I'm coming back to you ❤️";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.innerHTML =
+        `Countdown until we meet again ❤️<br>
+        <b>${days}</b> days 
+        <b>${hours}</b> hours 
+        <b>${minutes}</b> min 
+        <b>${seconds}</b> sec`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
 setInterval(updateCounter,1000);
 
