@@ -3,73 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>6 Months Anniversary ❤️</title>
+
+<title>Our Memories ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-body.popup-open{
-    overflow:hidden;
-}
+/* =========================
+   GENERAL
+========================= */
 
-@media (max-width: 768px) {
-
-    /* reduce overall scale */
-    .scene{
-        height:55vh;
-        perspective:900px;
-    }
-
-    .carousel{
-        width:220px;
-        height:220px;
-    }
-
-    .card{
-        width:100px;
-        height:130px;
-        margin:-65px -50px;
-    }
-
-    /* reduce 3D distance so it doesn't overflow screen */
-    .card:nth-child(1){ transform:rotateY(0deg) translateZ(280px); }
-    .card:nth-child(2){ transform:rotateY(45deg) translateZ(280px); }
-    .card:nth-child(3){ transform:rotateY(90deg) translateZ(280px); }
-    .card:nth-child(4){ transform:rotateY(135deg) translateZ(280px); }
-    .card:nth-child(5){ transform:rotateY(180deg) translateZ(280px); }
-    .card:nth-child(6){ transform:rotateY(225deg) translateZ(280px); }
-    .card:nth-child(7){ transform:rotateY(270deg) translateZ(280px); }
-    .card:nth-child(8){ transform:rotateY(315deg) translateZ(280px); }
-
-    /* slider fits screen */
-    input[type=range]{
-        width:80%;
-    }
-
-    /* letter button smaller */
-    .letter-btn{
-        width:65px;
-        height:65px;
-        font-size:26px;
-    }
-
-    /* popup text smaller */
-    .popup-box{
-        padding:25px;
-        font-size:14px;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    margin:0;
     background:#0f0f0f;
     color:white;
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
 }
 
-/* ===== TITLE ===== */
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:rgba(255,255,255,0.15);
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   TITLE
+========================= */
 
 .title{
     text-align:center;
@@ -81,28 +78,39 @@ body{
     font-size:3.2rem;
 }
 
-/* ===== SCENE ===== */
+.counter{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+/* =========================
+   SCENE
+========================= */
 
 .scene{
     width:100%;
-    height:65vh;
+    height:60vh;
     display:flex;
     justify-content:center;
     align-items:center;
     perspective:1200px;
 }
 
-/* ===== CAROUSEL ===== */
+/* =========================
+   CAROUSEL
+========================= */
 
 .carousel{
+    position:relative;
     width:320px;
     height:320px;
-    position:relative;
     transform-style:preserve-3d;
     cursor:grab;
 }
 
-/* ===== CARDS ===== */
+/* =========================
+   CARDS
+========================= */
 
 .card{
     position:absolute;
@@ -111,10 +119,10 @@ body{
     left:50%;
     top:50%;
     margin:-90px -70px;
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
     cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 .card img{
@@ -123,7 +131,8 @@ body{
     object-fit:cover;
 }
 
-/* positions */
+/* 12 PHOTOS */
+
 .card:nth-child(1){ transform:rotateY(0deg) translateZ(450px); }
 .card:nth-child(2){ transform:rotateY(30deg) translateZ(450px); }
 .card:nth-child(3){ transform:rotateY(60deg) translateZ(450px); }
@@ -137,7 +146,9 @@ body{
 .card:nth-child(11){ transform:rotateY(300deg) translateZ(450px); }
 .card:nth-child(12){ transform:rotateY(330deg) translateZ(450px); }
 
-/* ===== SLIDER ===== */
+/* =========================
+   SLIDER
+========================= */
 
 .scroll-container{
     display:flex;
@@ -147,29 +158,79 @@ body{
 
 input[type=range]{
     width:300px;
-    accent-color:white;
 }
 
-/* ===== LETTER BUTTON ===== */
+/* =========================
+   BUTTONS
+========================= */
 
-.letter-section{
-    text-align:center;
-    margin-top:15px;
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:20px;
+    flex-wrap:wrap;
 }
 
-.letter-btn{
-    width:80px;
-    height:80px;
+.circle-btn{
+    width:75px;
+    height:75px;
     border-radius:50%;
+    border:none;
     background:rgba(255,255,255,0.1);
-    border:2px solid rgba(255,255,255,0.3);
+    color:white;
     font-size:30px;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+/* =========================
+   APP VIEWER
+========================= */
+
+.app-viewer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.app-viewer img{
+    max-width:95%;
+    max-height:70%;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+.viewer-text{
+    margin-top:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:1.6rem;
+    text-align:center;
+    padding:0 20px;
+    line-height:1.6;
+}
+
+.viewer-close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:2.5rem;
     cursor:pointer;
 }
 
-/* ===== POPUPS ===== */
+/* =========================
+   ENVELOPE
+========================= */
 
-.popup, .img-popup{
+.envelope-popup{
     position:fixed;
     top:0;
     left:0;
@@ -179,61 +240,190 @@ input[type=range]{
     display:none;
     justify-content:center;
     align-items:center;
+    z-index:99999;
     flex-direction:column;
-    z-index:9999;
-    padding:20px;
-    box-sizing:border-box;
+}
+
+.envelope{
+    position:relative;
+    width:320px;
+    height:220px;
+    background:#ffb6c1;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff8fab;
+    clip-path:polygon(0 0,100% 0,50% 60%);
+    transform-origin:top;
+    transition:1s;
+}
+
+.letter{
+    position:absolute;
+
+    width:95%;
+    max-width:700px;
+
+    height:420px;
+
+    background:white;
+    color:#222;
+
+    left:50%;
+    top:10px;
+
+    transform:translateX(-50%) translateY(40px);
+
+    border-radius:18px;
+
+    padding:35px;
+
+    overflow-y:auto;
+
+    opacity:0;
+
+    transition:1s;
+
+    /* NEW FONT */
+    font-family:'Poppins',sans-serif;
+
+    font-size:1.15rem;
+
+    font-weight:400;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+    text-align:left;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+
+    letter-spacing:0.3px;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:translateX(-50%) translateY(-180px);
+    opacity:1;
+}
+
+/* =========================
+   LOVE JAR
+========================= */
+
+.jar-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.9);
+    z-index:99999;
+}
+
+.jar-box{
+    width:85%;
+    max-width:500px;
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
     text-align:center;
 }
-.popup{
-    will-change: opacity, transform;
-}
 
-/* image always fits screen */
-.img-popup img{
-    max-width:95%;
-    max-height:60vh;
-    width:auto;
-    height:auto;
-    border-radius:15px;
-    object-fit:contain;
-}
-
-/* text ALWAYS readable */
-.img-popup p{
-    margin-top:15px;
+.jar-message{
+    margin-top:20px;
     font-family:'Dancing Script',cursive;
-    font-size:1.4rem;
-    color:white;
-    max-width:90%;
-    line-height:1.6;
-    word-wrap:break-word;
+    font-size:2rem;
+    line-height:1.5;
 }
 
-/* close button stays visible */
-.close{
-    position:absolute;
-    top:15px;
-    right:20px;
-    font-size:2.5rem;
-    cursor:pointer;
-    color:white;
-}
-
-/* ===== MUSIC ===== */
+/* =========================
+   MUSIC BUTTON
+========================= */
 
 .music-btn{
     position:fixed;
     bottom:20px;
     right:20px;
-    padding:12px 18px;
     border:none;
     border-radius:30px;
-    background:white;
-    color:black;
-    font-weight:bold;
+    padding:12px 18px;
     cursor:pointer;
-    z-index:99999;
+    z-index:999999;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .scene{
+        height:50vh;
+    }
+
+    .carousel{
+        width:220px;
+        height:220px;
+    }
+
+    .card{
+        width:100px;
+        height:130px;
+        margin:-65px -50px;
+    }
+
+    .card:nth-child(1){ transform:rotateY(0deg) translateZ(280px); }
+    .card:nth-child(2){ transform:rotateY(30deg) translateZ(280px); }
+    .card:nth-child(3){ transform:rotateY(60deg) translateZ(280px); }
+    .card:nth-child(4){ transform:rotateY(90deg) translateZ(280px); }
+    .card:nth-child(5){ transform:rotateY(120deg) translateZ(280px); }
+    .card:nth-child(6){ transform:rotateY(150deg) translateZ(280px); }
+    .card:nth-child(7){ transform:rotateY(180deg) translateZ(280px); }
+    .card:nth-child(8){ transform:rotateY(210deg) translateZ(280px); }
+    .card:nth-child(9){ transform:rotateY(240deg) translateZ(280px); }
+    .card:nth-child(10){ transform:rotateY(270deg) translateZ(280px); }
+    .card:nth-child(11){ transform:rotateY(300deg) translateZ(280px); }
+    .card:nth-child(12){ transform:rotateY(330deg) translateZ(280px); }
+
+    .title h1{
+        font-size:2.4rem;
+    }
+
+    .viewer-text{
+        font-size:1.3rem;
+    }
+
+    input[type=range]{
+        width:80%;
+    }
+
+    .letter{
+
+    width:92%;
+
+    height:420px;
+
+    font-size:1rem;
+
+    line-height:1.9;
+
+    padding:25px;
+
+    border-radius:15px;
+    }
 }
 
 </style>
@@ -241,248 +431,489 @@ input[type=range]{
 
 <body>
 
+<!-- HEARTS -->
+<div class="hearts" id="hearts"></div>
+
+<!-- TITLE -->
 <div class="title">
-    <h1>Happy 6 Months Anniversary Babeeeee ❤️</h1>
+    <h1>Our Memories ❤️</h1>
+    <div class="counter" id="counter"></div>
 </div>
 
 <!-- CAROUSEL -->
 <div class="scene">
+
 <div class="carousel" id="carousel">
 
 <div class="card" data-msg="Our first photo together ❤️ (just right before we took the photo in the photo booth)
-I think it's our first photo together? did we take a photo before this? "><img src="photos/1.jpg"></div>
+I think it's our first photo together? did we take a photo before this? ">
+<img src="photos/1.jpg">
+</div>
 
-<div class="card" data-msg="Our first ramen together🍜(I don't count sushitei as ramen) 
-hmm did we even order ramen on our first day? I think we did since you loves the spicy mushroom ramen"><img src="photos/2.jpg"></div>
+<div class="card" data-msg="Our first ramen together🍜(I don't count sushitei as ramen)
+hmm did we even order ramen on our first day? I think we did since you loves the spicy mushroom ramen">
+<img src="photos/2.jpg">
+</div>
 
 <div class="card" data-msg="Our first dessert together 🍨 (And after that you told me you're lactose intolerant)
-(Your face is abit fierce here >.<) I wonder why?"><img src="photos/3.jpg"></div>
+(Your face is abit fierce here >.<) I wonder why?">
+<img src="photos/3.jpg">
+</div>
 
-<div class="card" data-msg="Us ❤️ (I don't know why I add this image in here but it's cute 😊)"><img src="photos/4.jpg"></div>
+<div class="card" data-msg="Us ❤️ (I don't know why I add this image in here but it's cute 😊)">
+<img src="photos/4.jpg">
+</div>
 
-<div class="card" data-msg="cuteeeee head touch, you lowkey look sad tho 😥 , but nvm it's still so cute my baby!!!"><img src="photos/5.jpg"></div>
+<div class="card" data-msg="cuteeeee head touch, you lowkey look sad tho 😥 , but nvm it's still so cute my baby!!!">
+<img src="photos/5.jpg">
+</div>
 
-<div class="card" data-msg="Our first Hotpot together 🍲 ( And then we take this photo, I still remember you talking about your shirt that you wear lol cute ❤️❤️ )"><img src="photos/6.jpg"></div>
+<div class="card" data-msg="Our first Hotpot together 🍲 ( And then we take this photo, I still remember you talking about your shirt that you wear lol cute ❤️❤️ )">
+<img src="photos/6.jpg">
+</div>
 
-<div class="card" data-msg="Holy I am brave 🫣 ( You are just too pretty I can't resist myself, I'm sorry 😔)"><img src="photos/7.jpg"></div>
+<div class="card" data-msg="Holy I am brave 🫣 ( You are just too pretty I can't resist myself, I'm sorry 😔)">
+<img src="photos/7.jpg">
+</div>
 
-<div class="card" data-msg="Us with the full outfit (your shirt that you pick that is not cute according to you, but it's cute in my eye 👀) "><img src="photos/8.jpg"></div>
+<div class="card" data-msg="Us with the full outfit (your shirt that you pick that is not cute according to you, but it's cute in my eye 👀)">
+<img src="photos/8.jpg">
+</div>
 
-<div class="card" data-msg="In the hotpot place !!!, our first hotpot together ater you told me so many times you love soup... I am such an idiot bf😔😔😔"><img src="photos/9.jpg"></div>
+<div class="card" data-msg="In the hotpot place !!!, our first hotpot together after you told me so many times you love soup... I am such an idiot bf😔😔😔">
+<img src="photos/9.jpg">
+</div>
 
-<div class="card" data-msg="Happy CNY🎉, look at my baby wearing a very cute chinese cloth ( and to think I'm gonna wear a T-shirt, what an idiot )"><img src="photos/10.jpg"></div>
-<div class="card" data-msg="CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE"><img src="photos/11.jpg"></div>
+<div class="card" data-msg="Happy CNY🎉, look at my baby wearing a very cute chinese cloth ( and to think I'm gonna wear a T-shirt, what an idiot )">
+<img src="photos/10.jpg">
+</div>
 
+<div class="card" data-msg="CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE CUTIE ❤️">
+<img src="photos/11.jpg">
+</div>
 
 <div class="card" data-msg="Exactly 6 Months ago, 18th November, the day I propose to the girl I love the most!!!
-I love you so much babe ❤️"><img src="photos/12.jpg"></div>
-
+I love you so much babe ❤️">
+<img src="photos/12.jpg">
+</div>
 
 </div>
 </div>
 
 <!-- SLIDER -->
 <div class="scroll-container">
-    <input type="range" min="0" max="360" value="0" id="slider">
+<input type="range" min="0" max="360" value="0" id="slider">
 </div>
 
-<!-- LETTER BUTTON -->
-<div class="letter-section">
-    <button class="letter-btn" onclick="openLetter()">💌</button>
+<!-- BUTTONS -->
+<div class="buttons">
+    <button class="circle-btn" onclick="openEnvelope()">💌</button>
+    <button class="circle-btn" onclick="openJar()">🫙</button>
 </div>
 
-<!-- IMAGE POPUP -->
-<div class="img-popup" id="imgPopup">
-    <span class="close" onclick="closeImg()">×</span>
-    <img id="popupImg">
-    <p id="popupText"></p>
+<!-- APP VIEWER -->
+<div class="app-viewer" id="appViewer">
+    <div class="viewer-close" onclick="closeViewer()">×</div>
+    <img id="viewerImg">
+    <div class="viewer-text" id="viewerText"></div>
 </div>
 
-<!-- LETTER POPUP -->
-<div class="popup" id="letterPopup">
-    <div class="popup-box">
-        <span class="close" onclick="closeLetter()">×</span>
-        <h2>❤️❤️❤️My Love Letter ❤️❤️❤️</h2>
-        <p>
-            To my love, 我的黄, MY QUEEN<br><br>
-            Happy 6 months anniversary babe!!!, can't believe it's already 6 months,<br><br>
+<!-- ENVELOPE -->
+<div class="envelope-popup" id="envelopePopup">
 
-            time passes so fast lately, I'm really sorry I can't be right beside you to celebrate our 6 months anniversary.<br><br>
+<div class="viewer-close" onclick="closeEnvelope()">×</div>
 
-            I love you so much. I know sometimes I can be a bit much to handle, especially when I’m gaming or talking with my friends. And sometimes when I’m upset I don’t reply fast — most of the time it’s just because my phone is on mute, not because I don’t care.<br><br>
+<div class="envelope" id="envelope">
 
-            Right now I know I'm not the perfect boyfriend you've always wanted, there are still alot of things for me to improve. But I want you to know that everyday I am trying to be a better boyfriend for you even if it's just a little bit.<br><br>
+<div class="flap"></div>
 
-            Thank you for staying with me for the past 6 Months, and for being patient with me, I really appreciate it babe❤️ really appreciate it🥹.<br><br>
+<div class="letter" id="letterText"></div>
 
-            I hope we can stay together for as long as we live, even when times are hard. <br><br>
-            ❤️ Calvin
-        </p>
-    </div>
+</div>
+</div>
+
+<!-- LOVE JAR -->
+<div class="jar-popup" id="jarPopup">
+
+<div class="jar-box">
+
+<h2>Reasons I Love You ❤️</h2>
+
+<div class="jar-message" id="jarMessage">
+Click below ❤️
+</div>
+
+<br>
+
+<button class="circle-btn" onclick="randomLove()">❤️</button>
+
+<br><br>
+
+<button onclick="closeJar()">Close</button>
+
+</div>
 </div>
 
 <!-- MUSIC -->
 <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mp3">
+<source src="music.mp3" type="audio/mp3">
 </audio>
 
 <button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
 
 <script>
 
-/* ===== CAROUSEL CONTROL ===== */
+/* FLOATING HEARTS */
+
+const heartsContainer = document.getElementById("hearts");
+
+setInterval(()=>{
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = (Math.random()*20 + 15) + "px";
+
+    heart.style.animationDuration = (Math.random()*5 + 5) + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+},500);
+
+/* COUNTER */
+
+const startDate = new Date("2025-11-18");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+
+    const hours = Math.floor(diff / (1000*60*60)) % 24;
+
+    document.getElementById("counter").innerHTML =
+    `Together for ${days} days ${hours} hours ❤️`;
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+/* CAROUSEL */
 
 const carousel = document.getElementById("carousel");
+
 const slider = document.getElementById("slider");
 
 let rotation = 0;
+
 let dragging = false;
-let startX = 0;
+
 let autoSpin = true;
+
 let paused = false;
 
+let startX = 0;
+
 function update(){
+
     carousel.style.transform = `rotateY(${rotation}deg)`;
 }
 
-/* ===== AUTO SPIN ===== */
-
 function animate(){
+
     if(!paused && autoSpin && !dragging){
+
         rotation += 0.15;
+
         slider.value = rotation;
+
         update();
     }
+
     requestAnimationFrame(animate);
 }
+
 animate();
 
-/* ===== SLIDER ===== */
+slider.addEventListener("input",(e)=>{
 
-slider.addEventListener("input", (e)=>{
     rotation = e.target.value;
+
     update();
+
     autoSpin = false;
 
     clearTimeout(window.spinBack);
-    window.spinBack = setTimeout(()=> autoSpin = true, 2000);
+
+    window.spinBack = setTimeout(()=>{
+        autoSpin = true;
+    },2000);
+
 });
 
-/* ===== DRAG ===== */
+/* DRAG */
 
-carousel.addEventListener("mousedown", (e)=>{
+carousel.addEventListener("mousedown",(e)=>{
     dragging = true;
-    autoSpin = false;
     startX = e.clientX;
 });
 
-document.addEventListener("mousemove", (e)=>{
+document.addEventListener("mousemove",(e)=>{
+
     if(!dragging) return;
 
     rotation += (e.clientX - startX) * 0.3;
+
     slider.value = rotation;
+
     update();
+
     startX = e.clientX;
 });
 
-document.addEventListener("mouseup", ()=>{
+document.addEventListener("mouseup",()=>{
     dragging = false;
-    setTimeout(()=> autoSpin = true, 2000);
 });
 
 /* TOUCH */
 
-carousel.addEventListener("touchstart", (e)=>{
+carousel.addEventListener("touchstart",(e)=>{
     dragging = true;
-    autoSpin = false;
     startX = e.touches[0].clientX;
 });
 
-carousel.addEventListener("touchmove", (e)=>{
+carousel.addEventListener("touchmove",(e)=>{
+
     if(!dragging) return;
 
     rotation += (e.touches[0].clientX - startX) * 0.3;
+
     slider.value = rotation;
+
     update();
+
     startX = e.touches[0].clientX;
 });
 
-carousel.addEventListener("touchend", ()=>{
+carousel.addEventListener("touchend",()=>{
     dragging = false;
-    setTimeout(()=> autoSpin = true, 2000);
 });
 
-/* ===== IMAGE POPUP ===== */
+/* APP VIEWER */
 
-const imgPopup = document.getElementById("imgPopup");
-const popupImg = document.getElementById("popupImg");
-const popupText = document.getElementById("popupText");
+const appViewer = document.getElementById("appViewer");
 
-document.querySelectorAll(".card").forEach(card=>{
-    card.addEventListener("click", ()=>{
-        
+const viewerImg = document.getElementById("viewerImg");
+
+const viewerText = document.getElementById("viewerText");
+
+const cards = document.querySelectorAll(".card");
+
+let currentIndex = 0;
+
+cards.forEach((card,index)=>{
+
+    card.addEventListener("click",()=>{
+
         paused = true;
-        autoSpin = false;
 
-        document.body.classList.add("popup-open");
+        currentIndex = index;
 
-        imgPopup.style.display = "flex";
-        popupImg.src = card.querySelector("img").src;
-        popupText.innerText = card.dataset.msg;
+        viewerImg.src = card.querySelector("img").src;
+
+        viewerText.innerText = card.dataset.msg;
+
+        appViewer.style.display = "flex";
     });
+
 });
 
-function closeImg(){
-    imgPopup.style.display = "none";
+appViewer.addEventListener("touchstart",(e)=>{
+    startX = e.touches[0].clientX;
+});
 
-    document.body.classList.remove("popup-open");
+appViewer.addEventListener("touchend",(e)=>{
 
-    setTimeout(()=>{
-        paused = false;
-        autoSpin = true;
-    }, 300);
+    let endX = e.changedTouches[0].clientX;
+
+    let diff = endX - startX;
+
+    if(Math.abs(diff) > 50){
+
+        if(diff < 0){
+            currentIndex = (currentIndex + 1) % cards.length;
+        }else{
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        }
+
+        viewerImg.src = cards[currentIndex].querySelector("img").src;
+
+        viewerText.innerText = cards[currentIndex].dataset.msg;
+    }
+});
+
+function closeViewer(){
+
+    appViewer.style.display = "none";
+
+    paused = false;
 }
 
-/* ===== LETTER ===== */
+/* ENVELOPE */
 
-const letterPopup = document.getElementById("letterPopup");
+const envelopePopup = document.getElementById("envelopePopup");
 
-function openLetter(){
+const envelope = document.getElementById("envelope");
+
+const letterText = document.getElementById("letterText");
+
+const fullLetter = `❤️❤️❤️ My Love Letter ❤️❤️❤️
+
+To my love, 我的黄, MY QUEEN ❤️
+
+Happy 6 months anniversary babe!!!
+I still can't believe it's already been 6 months.
+
+Time passes so fast lately, and I'm really sorry I can't be right beside you to celebrate our 6 months anniversary.
+
+I love you so much ❤️
+
+I know sometimes I can be a bit much to handle, especially when I’m gaming or talking with my friends.
+
+And sometimes when I’m upset I don’t reply fast — most of the time it’s just because my phone is on mute, not because I don’t care.
+
+Right now I know I'm not the perfect boyfriend you've always wanted.
+
+There are still alot of things for me to improve.
+
+But I want you to know that everyday I am trying to become a better boyfriend for you, even if it's just a little bit at a time.
+
+Thank you for staying with me for the past 6 months ❤️
+
+And thank you for being patient with me, changing together with me, and always staying by my side.
+
+I really appreciate it babe 🥹❤️
+
+I hope we can stay together for as long as we live, even when times are hard.
+
+No matter where we are,
+Guangzhou or Medan,
+my heart will always choose you ❤️
+
+❤️ Calvin`;
+
+function openEnvelope(){
 
     paused = true;
-    autoSpin = false;
-    dragging = false;
 
-    document.body.classList.add("popup-open");
+    envelopePopup.style.display = "flex";
 
-    letterPopup.style.display = "flex";
-}
+    envelope.classList.remove("open");
 
-function closeLetter(){
-
-    letterPopup.style.display = "none";
-
-    document.body.classList.remove("popup-open");
+    letterText.innerHTML = "";
 
     setTimeout(()=>{
-        paused = false;
-        autoSpin = true;
-    }, 300);
+
+        envelope.classList.add("open");
+
+        typeWriter(fullLetter,0);
+
+    },600);
 }
 
-/* ===== MUSIC FIX ===== */
+function closeEnvelope(){
+
+    envelopePopup.style.display = "none";
+
+    paused = false;
+}
+
+function typeWriter(text,index){
+
+    if(index < text.length){
+
+        const char = text.charAt(index);
+
+        letterText.innerHTML += char;
+
+        letterText.scrollTop = letterText.scrollHeight;
+
+        setTimeout(()=>{
+            typeWriter(text,index+1);
+        },20);
+    }
+}
+
+/* LOVE JAR */
+
+const jarPopup = document.getElementById("jarPopup");
+
+const messages = [
+
+"Your smile ❤️",
+"Your laugh ❤️",
+"The way you care about me ❤️",
+"Your voice ❤️",
+"The way you look at me ❤️",
+"How patient you are ❤️",
+"How cute you are ❤️",
+"Everything about you ❤️"
+
+];
+
+function openJar(){
+
+    paused = true;
+
+    jarPopup.style.display = "flex";
+}
+
+function closeJar(){
+
+    jarPopup.style.display = "none";
+
+    paused = false;
+}
+
+function randomLove(){
+
+    const random = Math.floor(Math.random()*messages.length);
+
+    document.getElementById("jarMessage").innerText = messages[random];
+}
+
+/* MUSIC */
 
 const music = document.getElementById("bgMusic");
+
 let musicStarted = false;
 
-document.addEventListener("click", ()=>{
+document.addEventListener("click",()=>{
+
     if(!musicStarted){
+
         music.play().catch(()=>{});
+
         musicStarted = true;
     }
-}, {once:true});
+
+},{once:true});
 
 function toggleMusic(){
+
     if(music.paused){
         music.play();
     }else{
